@@ -36,7 +36,7 @@ const CONFIG = {
   wedding: {
     date: "2026-12-12",
     time: "13:30",
-    venue: "더아트라움",
+    venue: "더 아트라움",
     hall: "마리에가든 4층",
     address: "경북 경산시 계양로 38",
     // tel: "02-1234-5678",
