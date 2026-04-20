@@ -36,36 +36,31 @@
      Image Auto-Detection
      ═══════════════════════════════════════════ */
 
-  function loadImagesFromFolder(folder, maxAttempts = 50) {
-    return new Promise(resolve => {
-        const images = [];
-        let current = 1;
-        let consecutiveFails = 0;
+  async function loadImagesFromFolder(folder, maxAttempts = 50) {
+    const images = [];
+    let consecutiveFails = 0;
 
-        function tryNext() {
-            if (current > maxAttempts || consecutiveFails >= 3) {
-                resolve(images);
-                return;
-            }
-            const img = new Image();
-            const path = `images/${folder}/${current}.jpg`;
-            img.onload = function() {
+    for (let i = 1; i <= maxAttempts; i++) {
+        const path = `images/${folder}/${i}.jpg`;
+
+        try {
+            const res = await fetch(path, { method: 'HEAD' });
+
+            if (res.ok) {
                 images.push(path);
                 consecutiveFails = 0;
-                current++;
-                tryNext();
-            };
-            img.onerror = function() {
+            } else {
                 consecutiveFails++;
-                current++;
-                tryNext();
-            };
-            img.src = path;
+            }
+        } catch {
+            consecutiveFails++;
         }
 
-        tryNext();
-    });
-  }
+        if (consecutiveFails >= 3) break;
+    }
+
+    return images;
+}
 
   /* ═══════════════════════════════════════════
      Toast
