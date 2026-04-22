@@ -52,13 +52,14 @@
 
     <!-- Hero Section -->
     <section class="section hero" id="hero">
-      <div class="hero__photo-wrap">
-        <img class="hero__photo" id="heroPhoto" src="" alt="웨딩 사진" loading="eager">
-      </div>
       <div class="hero__content">
         <h1 class="hero__names animate-item" data-animate="fade-up" id="heroNames"></h1>
         <p class="hero__date animate-item" data-animate="fade-up" id="heroDate"></p>
         <p class="hero__venue animate-item" data-animate="fade-up" id="heroVenue"></p>
+      </div>
+      
+      <div class="hero__photo-wrap">
+        <img class="hero__photo" id="heroPhoto" src="" alt="웨딩 사진" loading="eager">
       </div>
 
       <!-- Countdown -->
@@ -122,6 +123,9 @@
       <div class="section__inner">
         <h2 class="section__title animate-item" data-animate="fade-up">오시는 길</h2>
         <div class="section__divider animate-item" data-animate="fade-in"></div>
+        <div class="location__map animate-item" data-animate="fade-in">
+          <img class="location__map-img" id="locationMapImg" src="" alt="약도" loading="lazy">
+        </div>
         <div class="location__info animate-item" data-animate="fade-up">
           <p class="location__venue" id="locationVenue"></p>
           <p class="location__hall" id="locationHall"></p>
@@ -129,9 +133,6 @@
           <p class="location__tel" id="locationTel"></p>
         </div>
         <button class="btn btn--text location__copy animate-item" data-animate="fade-up" id="copyAddressBtn">주소 복사</button>
-        <div class="location__map animate-item" data-animate="fade-in">
-          <img class="location__map-img" id="locationMapImg" src="" alt="약도" loading="lazy">
-        </div>
         <div class="location__links animate-item" data-animate="fade-up">
           <a class="btn btn--outline" id="kakaoMapBtn" href="#" target="_blank" rel="noopener">카카오맵</a>
           <a class="btn btn--outline" id="naverMapBtn" href="#" target="_blank" rel="noopener">네이버지도</a>
